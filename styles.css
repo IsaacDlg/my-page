@@ -693,10 +693,16 @@ section {
     font-size: 0.86rem;
 }
 
+.contact_value:hover {
+    color: #3b82f6
+}
+
 .contact_highlight {
     color: var(--accent);
     font-weight: 500;
 }
+
+
 
 .contact_form {
     display: grid;
