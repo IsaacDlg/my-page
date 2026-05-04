@@ -911,11 +911,19 @@
 
                     if (grid && prevBtn && nextBtn) {
                         prevBtn.addEventListener('click', () => {
-                            grid.scrollBy({ left: -360, behavior: 'smooth' });
+                            if (grid.scrollLeft <= 0) {
+                                grid.scrollTo({ left: grid.scrollWidth, behavior: 'smooth' });
+                            } else {
+                                grid.scrollBy({ left: -360, behavior: 'smooth' });
+                            }
                         });
 
                         nextBtn.addEventListener('click', () => {
-                            grid.scrollBy({ left: 360, behavior: 'smooth' });
+                            if (Math.ceil(grid.scrollLeft + grid.clientWidth) >= grid.scrollWidth - 5) {
+                                grid.scrollTo({ left: 0, behavior: 'smooth' });
+                            } else {
+                                grid.scrollBy({ left: 360, behavior: 'smooth' });
+                            }
                         });
                     }
                 });
